@@ -17,7 +17,7 @@ var getToken = (req, res) => {
 const middleware = (req, res, next) => {
   var token = req.header("Authorization");
   console.log("token", token);
-  if (req.url == "/api/login/") {
+  if (req.url == "/api/login/" || req.url == "/api/signin/") {
     next();
   } else {
     if (!token) {

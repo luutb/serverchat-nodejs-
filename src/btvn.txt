@@ -1,0 +1,92 @@
+public class Btvn {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static int [] arr;
+    static int SoNguyen;
+    static Scanner sc;
+    static String Binary;
+    public static void outPut(){
+        System.out.println("---------Menu---------");
+        System.out.println("1. Nhap so he 10");
+        System.out.println("2. Chuyen sang he 2");
+        System.out.println("3. Chuyen sang he 8");
+        System.out.println("4. Thoat");
+    }
+    public static void Input(int chon){
+        switch(chon){
+            case 1 : {
+                System.out.println("Nhap so he 10:");
+                SoNguyen = sc.nextInt();
+                break;
+            }
+             case 2 : {
+                Binary = "";
+                System.out.println("chon"+ SoNguyen);
+                String test = CoSo2(SoNguyen);
+                 System.out.println(test);
+                break;
+            }
+              case 3 : {
+                Binary = "";
+                String test = CoSo8(SoNguyen);
+                  System.out.println(test);
+                break;
+            }
+               case 4 : {
+                System.out.println("chon 4");
+                break;
+            }
+        }
+    }
+    public static String CoSo2(int songuyen){
+        
+        int du = songuyen/2 ;       
+        int binary = songuyen - du * 2;
+        Binary += binary+"";
+        if(du <= 0){         
+            System.out.println("chay vao day");
+             return new StringBuilder(Binary).reverse().toString();
+        }
+        else{
+              System.out.println("chay vao day2");
+              CoSo2(du);
+              return new StringBuilder(Binary).reverse().toString();
+        }
+       
+    }
+     public static String CoSo8(int songuyen){
+        
+        int du = songuyen / 8 ;       
+        int binary = songuyen - du * 8;
+        Binary += binary+"";
+        if(du <= 0){         
+          
+             return new StringBuilder(Binary).reverse().toString();
+        }
+        else{
+        
+              CoSo8(du);
+              return new StringBuilder(Binary).reverse().toString();
+        }
+       
+    }
+    public static void main(String[] args) {
+       
+        sc = new Scanner(System.in);      
+        outPut();
+        System.out.println("Moi nhap"); 
+        int chon = sc.nextInt();
+        Input(chon);
+        while(chon <= 3)
+        {  
+            outPut();
+            int chon1 = sc.nextInt();      
+            Input(chon1);
+       
+        }
+       
+    }
+    
+}

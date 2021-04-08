@@ -35,12 +35,13 @@ const setState = (params) => {
 };
 
 const SignIn = (req, res) => {
+
   LoginServices.SignIn(req.body)
     .then((result) => {
-      console.log("thanh cong");
+      console.log("thanh cong",result);
     })
     .catch((err) => {
-      console.log("that bai");
+      console.log("that bai",err);
     });
 };
 module.exports = {
